@@ -7,6 +7,16 @@
 #' @export
 D3Horizon <- function(data, horizon_height = 80, title = '', message = 'dev - testing', width = NULL, height = NULL, elementId = NULL) {
 
+  stopifnot(class(data) %in% c('numeric', 'data.frame'))
+  
+  if (class(data) == 'numeric') {
+    data <- list(name = title, values = data)
+  } else {
+    data <- lapply(colnames(data), function(x){list(name = x, values = data[[x]])})
+  } 
+  
+  data <- toJSON(data, auto_unbox = T)
+  
   # forward options using x
   x = list(
     message = message,
