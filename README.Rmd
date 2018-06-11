@@ -1,0 +1,40 @@
+---
+title: "D3 Horizon Charts"
+output: 
+  rmarkdown::github_document:
+    html_preview: true
+  html_document:
+    keep_md: false
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(webshot)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Introduction
+
+Simple D3 Horizon Chart widget based on [http://kmandov.github.io/d3-horizon-chart/](http://kmandov.github.io/d3-horizon-chart/).
+
+```{r test}
+
+library(D3Horizon)
+
+n = 1500
+data = cos(1:n / 100) + (rnorm(n) - 0.5) / 10
+
+
+```
+
+## Simple Example
+
+
+```{r simple}
+
+D3Horizon(data, title = 'Testing', horizon_height = 120)
+
+```
+
