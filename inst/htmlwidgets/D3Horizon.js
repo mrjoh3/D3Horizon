@@ -30,6 +30,7 @@ HTMLWidgets.widget({
             .each(function(d) {
                 d3.horizonChart()
                     .height(x.horizon_height)
+                    .axis(x.axis)
                     .title(d.name)
                     .colors(['#313695', '#4575b4', '#74add1', '#abd9e9', '#fee090', '#fdae61', '#f46d43', '#d73027'])
                     .call(this, d.values);

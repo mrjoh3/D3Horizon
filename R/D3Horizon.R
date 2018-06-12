@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-D3Horizon <- function(data, horizon_height = 80, title = '', message = 'dev - testing', width = NULL, height = NULL, elementId = NULL) {
+D3Horizon <- function(data, axis = NULL, horizon_height = 80, title = '', message = 'dev - testing', width = NULL, height = NULL, elementId = NULL) {
 
   stopifnot(class(data) %in% c('numeric', 'data.frame'))
   
@@ -21,6 +21,7 @@ D3Horizon <- function(data, horizon_height = 80, title = '', message = 'dev - te
   x = list(
     message = message,
     data = data,
+    axis = axis,
     title = title,
     horizon_height = horizon_height
   )
