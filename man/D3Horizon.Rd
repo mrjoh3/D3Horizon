@@ -4,8 +4,8 @@
 \alias{D3Horizon}
 \title{<Add Title>}
 \usage{
-D3Horizon(data, horizon_height = 80, title = "",
-  message = "dev - testing", width = NULL, height = NULL,
+D3Horizon(data, axis = NULL, horizon_height = 80, title = "",
+  padding = 0, message = "dev - testing", width = NULL, height = NULL,
   elementId = NULL)
 }
 \description{

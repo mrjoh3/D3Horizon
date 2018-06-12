@@ -3,9 +3,10 @@
 #' <Add Description>
 #'
 #' @import htmlwidgets
+#' @importFrom jsonlite toJSON
 #'
 #' @export
-D3Horizon <- function(data, axis = NULL, horizon_height = 80, title = '', message = 'dev - testing', width = NULL, height = NULL, elementId = NULL) {
+D3Horizon <- function(data, axis = NULL, horizon_height = 80, title = '', padding = 0, message = 'dev - testing', width = NULL, height = NULL, elementId = NULL) {
 
   stopifnot(class(data) %in% c('numeric', 'data.frame'))
   
@@ -15,13 +16,20 @@ D3Horizon <- function(data, axis = NULL, horizon_height = 80, title = '', messag
     data <- lapply(colnames(data), function(x){list(name = x, values = data[[x]])})
   } 
   
-  data <- toJSON(data, auto_unbox = T)
+  data <- toJSON(data, auto_unbox = TRUE)
+  
+  if (!is.null(axis)) {
+    axis <- list(min = min(axis),
+                 max = max(axis))
+    axis <- toJSON(axis, auto_unbox = TRUE)
+  }
   
   # forward options using x
   x = list(
     message = message,
     data = data,
     axis = axis,
+    padding = padding,
     title = title,
     horizon_height = horizon_height
   )

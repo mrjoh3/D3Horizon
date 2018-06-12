@@ -38,3 +38,26 @@ D3Horizon(data, title = 'Testing', horizon_height = 120)
 
 ```
 
+
+```{r multiple}
+
+d2 <- data.frame(a = data,
+                 b = data * 2)
+
+D3Horizon(d2, title = 'Testing', horizon_height = 120)
+
+```
+
+
+```{r axis}
+
+d2 <- data.frame(a = data,
+                 b = data * 2)
+axis <- sort(seq(as.Date('2018-06-30'), 
+                 as.Date('2013-01-01'), 
+                 length.out = 1500))
+
+D3Horizon(d2, title = 'Testing', horizon_height = 120)
+
+```
+
